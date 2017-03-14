@@ -39,3 +39,9 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+
+def add(request, a, b):
+    c = int(a) + int(b)
+    if len(str(c)) > 99:
+        return HttpResponse(str('value error!'))
+    return HttpResponse(str(c))
